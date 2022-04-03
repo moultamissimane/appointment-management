@@ -56,14 +56,14 @@ export const CreateUser = () => {
                 localStorage.setItem('token', res.data.Token)
                 localStorage.setItem('user', JSON.stringify(res.data.User))
                 if (res.data.Token) {
-                    setSnackBarMessage('Register Successful')
+                    setSnackBarMessage('Register Successful 🎉')
                     setSnackBarOpen(true)
                     setTimeout(() => {
                         navigate('/qsd')
                     }, 1000)
                 }
                 else {
-                    setSnackBarMessage('Register Failed')
+                    setSnackBarMessage('Register Failed 😢💔')
                     setSnackBarOpen(true)
                 }
             }
@@ -109,30 +109,30 @@ export const CreateUser = () => {
                                 <label className="block text-gray-700">First Name</label>
                                 <input
                                     onChange={handleChange}
-                                    type="text" name="f_name" id="" placeholder="Enter First Name" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" />
+                                    type="text" name="f_name" id="" placeholder="Enter First Name" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-amber-500 focus:bg-white focus:outline-none" />
                             </div>
                             <div>
                                 <label className="block text-gray-700">Last Name</label>
                                 <input
                                     onChange={handleChange}
-                                    type="text" name="l_name" id="" placeholder="Enter Last Name" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" />
+                                    type="text" name="l_name" id="" placeholder="Enter Last Name" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-amber-500 focus:bg-white focus:outline-none" />
                             </div>
                             <div>
                                 <label className="block text-gray-700">Email Address</label>
                                 <input
                                     onChange={handleChange}
-                                    type="email" name="email" id="" placeholder="Enter Email Address" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" />
+                                    type="email" name="email" id="" placeholder="Enter Email Address" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-amber-500 focus:bg-white focus:outline-none" />
                             </div>
 
                             <div className="mt-4">
                                 <label className="block text-gray-700">Password</label>
                                 <input
                                     onChange={handleChange}
-                                    type="password" name="password" id="" placeholder="Enter Password" minLength="2" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" />
+                                    type="password" name="password" id="" placeholder="Enter Password" minLength="2" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-amber-500 focus:bg-white focus:outline-none" />
                             </div>
 
                             <button
-                                type="submit" className="w-full block bg-amber-500 hover:bg-amber-600 focus:bg-indigo-400 text-white font-semibold rounded-lg  px-4 py-3 mt-6">Create Account</button>
+                                type="submit" className="w-full block bg-amber-500 hover:bg-amber-600 focus:bg-amber-400 text-white font-semibold rounded-lg  px-4 py-3 mt-6">Create Account</button>
                         </form>
                         <p className="mt-8">Already have an account? <a href="#" className="text-amber-500 hover:text-amber-600 font-semibold">Login Here😎</a></p>
                     </div>

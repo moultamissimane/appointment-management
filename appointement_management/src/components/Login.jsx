@@ -56,14 +56,14 @@ export const Login = () => {
                 localStorage.setItem('token', res.data.Token)
                 localStorage.setItem('user', JSON.stringify(res.data.User))
                 if (res.data.Token) {
-                    setSnackBarMessage('Login Successful')
+                    setSnackBarMessage('Login Successful 🎉')
                     setSnackBarOpen(true)
                     setTimeout(() => {
                         navigate('/qsd')
                     }, 1000)
                 }
                 else {
-                    setSnackBarMessage('Login Failed')
+                    setSnackBarMessage('Login Failed 😢💔')
                     setSnackBarOpen(true)
                 }
             }
@@ -110,25 +110,25 @@ export const Login = () => {
                                 <label className="block text-gray-700">Email Address</label>
                                 <input
                                     onChange={handleChange}
-                                    type="email" name="email" id="" placeholder="Enter Email Address" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" />
+                                    type="email" name="email" id="" placeholder="Enter Email Address" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-amber-500 focus:bg-white focus:outline-none" />
                             </div>
 
                             <div className="mt-4">
                                 <label className="block text-gray-700">Password</label>
                                 <input
                                     onChange={handleChange}
-                                    type="password" name="password" id="" placeholder="Enter Password" minLength="2" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" />
+                                    type="password" name="password" id="" placeholder="Enter Password" minLength="2" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-amber-500 focus:bg-white focus:outline-none" />
                             </div>
 
                             <div className="text-right mt-2">
 
                                 <Link
                                     to="/forgot-password"
-                                    className="text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700">Forgot Password?</Link>
+                                    className="text-sm font-semibold text-gray-700 hover:text-amber-500 focus:text-amber-500">Forgot Password?</Link>
                             </div>
 
                             <button
-                                type="submit" className="w-full block bg-amber-500 hover:bg-amber-600 focus:bg-indigo-400 text-white font-semibold rounded-lg  px-4 py-3 mt-6">Log In</button>
+                                type="submit" className="w-full block bg-amber-500 hover:bg-amber-600 focus:bg-amber-600 text-white font-semibold rounded-lg  px-4 py-3 mt-6">Log In</button>
                         </form>
                         <p className="mt-8">Need an account? <Link to="createUser" className="text-amber-500 hover:text-amber-600 font-semibold">Create an
                             account</Link></p>
