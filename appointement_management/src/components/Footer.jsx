@@ -35,7 +35,7 @@ export const Footer = () => {
             <div className="flex flex-wrap items-top mb-6">
               <div className="w-full lg:w-4/12 px-4 ml-auto">
                 <span className="block uppercase text-indigo-500 text-sm font-semibold mb-2">Useful Links</span>
-                <ul className="list-unstyled">
+                <ul>
                   <li>
                     <a className="text-indigo-900 hover:text-indigo-600 font-semibold block pb-2 text-sm" href="#">About Us</a>
                   </li>

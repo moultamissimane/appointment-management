@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
+import {Link,  useNavigate } from 'react-router-dom'
 import CircularProgress from '@mui/material/CircularProgress'
 import Button from '@mui/material/Button'
 import Snackbar from '@mui/material/Snackbar'
@@ -33,6 +33,9 @@ export const CreateUser = () => {
         }))
     }
 
+
+
+
     useEffect(async () => {
         let user = await getUser()
         let token = getToken()
@@ -49,7 +52,7 @@ export const CreateUser = () => {
         event.preventDefault();
         console.log(inputs)
         setIsLoading(true)
-        axios.post('http://localhost/app_api/user/login', inputs)
+        axios.post('http://localhost/app_api/user/register', inputs)
             .then(res => {
                 console.log(res.data.Token)
                 setIsLoading(false)
@@ -59,7 +62,7 @@ export const CreateUser = () => {
                     setSnackBarMessage('Register Successful 🎉')
                     setSnackBarOpen(true)
                     setTimeout(() => {
-                        navigate('/qsd')
+                        navigate('/home')
                     }, 1000)
                 }
                 else {
@@ -86,9 +89,9 @@ export const CreateUser = () => {
     );
 
     return (
-        <motion.div classNameName='min-h-screen bg-cyan-600'>
-            <div className="flex flex-col md:flex-row h-1/2 items-center">
-                <div className="bg-white hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
+        <motion.div classNameName='min-h-screen'>
+            <div className="flex  md:flex-row h-1/5 bg-slate-300 items-center">
+                <div className="bg-slate-300 hidden lg:block w-1/5 md:w-1/2 xl:w-2/3 h-screen">
                     <div>
                         <div className="flex justify-center">
                         <AppLottie />
@@ -97,7 +100,7 @@ export const CreateUser = () => {
 
                 </div>
 
-                <div className="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto  md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12 flex items-center justify-center">
+                <div className="bg-white w-1/4 md:max-w-md lg:max-w-full md:mx-auto  md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12 flex items-center justify-center">
 
                     <div className="w-full ">
 
@@ -134,7 +137,7 @@ export const CreateUser = () => {
                             <button
                                 type="submit" className="w-full block bg-amber-500 hover:bg-amber-600 focus:bg-amber-400 text-white font-semibold rounded-lg  px-4 py-3 mt-6">Create Account</button>
                         </form>
-                        <p className="mt-8">Already have an account? <a href="#" className="text-amber-500 hover:text-amber-600 font-semibold">Login Here😎</a></p>
+                        <p className="mt-8">Already have an account? <Link to="Login" className="text-amber-500 hover:text-amber-600 font-semibold">Login Here😎</Link></p>
                     </div>
                 </div>
 

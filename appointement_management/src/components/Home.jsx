@@ -1,25 +1,25 @@
 import React from 'react'
-import { Navbar } from '../components/Navbar'
-import { Footer } from '../components/Footer'
-import {AddAppointment} from '../components/AddAppointment'       
-// import Container from '@mui/material'
-// import Grid from '@mui/material'
-// import Box from '@mui/material'
+import { Navbar } from './Navbar'
+import { Footer } from './Footer'
+import {AddAppointment} from './AddAppointment'       
+import { AvAppointment } from './AvAppointment'
+// import {Swiper, SwiperSlide} from 'swiper/react'
+// import SwipeCore from 'swiper'
+// import 'swiper/swiper-bundle.css'
 
-// import CalendarPicker from '@mui/lab/CalendarPicker'
+
 
 export const Home = () => {
+
     return (
         <div className='min-h-screen flex items-stretch '>
             <div className=''>
                 <Navbar />
-                <AddAppointment/>
+                <AvAppointment/>
+                
+
                 <Footer />
             </div>
-            
-            {/* <div className=''>
-
-            </div> */}
         </div>
     )
 

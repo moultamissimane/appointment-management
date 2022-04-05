@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
+import React, { useEffect, useState} from 'react'
 import axios from 'axios'
 import { motion } from 'framer-motion'
 import { Link, useNavigate } from 'react-router-dom'
@@ -59,7 +58,7 @@ export const Login = () => {
                     setSnackBarMessage('Login Successful 🎉')
                     setSnackBarOpen(true)
                     setTimeout(() => {
-                        navigate('/qsd')
+                        navigate('/home')
                     }, 1000)
                 }
                 else {
@@ -85,7 +84,6 @@ export const Login = () => {
         </>
     );
 
-    // const [isClicked, setIsClicked] = useState(false);
     return (
         <motion.div classNameName='min-h-screen bg-cyan-600'>
             <div className="flex flex-col md:flex-row h-screen items-center">
