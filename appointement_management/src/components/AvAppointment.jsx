@@ -1,38 +1,44 @@
-import React from 'react'
+import { React, useState, useEffect } from 'react'
+import { motion } from "framer-motion"
+import { Link } from 'react-router-dom'
+// import { AddAppointment } from './AddAppointment'
+
+
+
+
 
 export const AvAppointment = () => {
-  return (
-    <div className="py-16 bg-amber-100">  
-    <div className="container m-auto px-6 text-gray-500 md:px-12 xl:px-0">
-      <h1 className='flex justify-center text-4xl text-bold text-slate-900'>Available Reservations</h1>
-        <div className="mx-auto mt-5 grid gap-6 md:w-3/4 lg:w-full lg:grid-cols-3">
-            <div className="bg-white rounded-2xl shadow-xl px-8 py-12 sm:px-12 lg:px-8">
-                <div className="mb-12 space-y-4">
-                    <h3 className="text-2xl font-semibold text-purple-900">Graphic Design</h3>
-                    <p className="mb-6">Obcaecati, quam? Eligendi, nulla numquam natus laborum porro at cum, consectetur ullam tempora ipsa iste officia sed officiis! Incidunt ea animi officiis.</p>
-                    <a href="#" className="block font-medium text-purple-600">Know more</a>
+    return (
+        <div className="py-16 bg-amber-100">
+            <div className="container m-auto px-6 md:px-12 xl:px-0">
+                <h1 className='flex justify-center text-4xl text-bold text-slate-900'>Book Your Reservation Here</h1>
+                <div className=" flex justify-center mt-5 md:w-3/4 lg:w-full lg:grid-cols-3">
+                    <div className="bg-white rounded-2xl w-1/2 shadow-xl  sm:px-12 lg:px-8">
+                        <div className=" flex flex-wrap mb-12 space-y-4">
+                            <img className='w-80 h-80' src="../public/assets/Cardiologist-rafiki.png" alt="cardiologist_image" />
+                            <div className='flex-wrap justify-center mb-24  '>
+                                <p className='text-black font-bold text-lg pt-16 pb-10'>Click Go to see Reservation</p>
+                                <motion.input
+                                    whileTap={{
+                                        scale: 0.95,
+                                    }}
+                                    
+                                    type="date" className="shadow-md outline-none rounded-md p-3 w-full" />
+                                <div className='flex justify-center'>
+                                    <Link to="/AddAppointment">
+                                        <button className='w-1/3 block bg-amber-500 hover:bg-amber-600 focus:bg-amber-600 text-white font-semibold rounded-lg  px-4 py-3 mt-6 '>Go
+                                        </button>
+                                    </Link>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <img src="https://tailus.io/sources/blocks/end-image/preview/images/graphic.svg" className="w-2/3 ml-auto -mb-12" alt="illustration" loading="lazy" width="900" height="600"/>
-            </div>
-            <div className="bg-white rounded-2xl shadow-xl px-8 py-12 sm:px-12 lg:px-8">
-                <div className="mb-12 space-y-4">
-                    <h3 className="text-2xl font-semibold text-purple-900">UI Design</h3>
-                    <p className="mb-6">Obcaecati, quam? Eligendi, nulla numquam natus laborum porro at cum, consectetur ullam tempora ipsa iste officia sed officiis! Incidunt ea animi officiis.</p>
-                    <a href="#" className="block font-medium text-purple-600">Know more</a>
-                </div>
-                <img src="https://tailus.io/sources/blocks/end-image/preview/images/ui-design.svg" className="w-2/3 ml-auto" alt="illustration" loading="lazy" width="900" height="600"/>
-            </div>
-            <div className="bg-white rounded-2xl shadow-xl px-8 py-12 sm:px-12 lg:px-8">
-                <div className="mb-12 space-y-4">
-                    <h3 className="text-2xl font-semibold text-purple-900">UX Design</h3>
-                    <p className="mb-6">Obcaecati, quam? Eligendi, nulla numquam natus laborum porro at cum, consectetur ullam tempora ipsa iste officia sed officiis! Incidunt ea animi officiis.</p>
-                    <a href="#" className="block font-medium text-purple-600">Know more</a>
-                </div>
-                <img src="https://tailus.io/sources/blocks/end-image/preview/images/ux-design.svg" className="w-2/3 ml-auto " alt="illustration" loading="lazy" width="900" height="600"/>
             </div>
         </div>
-    </div>
-</div>
-  )
+    )
 }
+
+
 

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { CircularProgress } from "@mui/material";
 import { TrendingUpRounded } from "@mui/icons-material";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const AddAppointment = ({ onSendAppointment, lastId }) => {
 
@@ -32,18 +33,23 @@ export const AddAppointment = ({ onSendAppointment, lastId }) => {
         },
     ]
 
+    // setIsLoading is a function that lets you set the value of the state variable 
     const [isLoading, setIsLoading] = useState(false)
     const [date, setDate] = useState('')
     const [slots, setSlots] = useState(initialSlots)
 
     const handleReservation = async (slot) => {
         setIsLoading(true)
+        // axios.post is http request to post data to the server
         axios.post('http://localhost/app_api/RDV/add', {
+            // we can access to them from the client side
             reserv_date: date,
             slot: slot
         }, {
             headers: {
                 'Content-Type': 'application/json',
+                // getItem used to get the token from local storage
+                //localStorage allows to save data as key-value pairs in the browser for later use
                 "Authorization": `Bearer ${localStorage.getItem('token')}`
             }
         }).then(res => {
@@ -74,7 +80,7 @@ export const AddAppointment = ({ onSendAppointment, lastId }) => {
             )
     }
 
-
+    // making sure that the state variable date is updated
     useEffect(() => {
         console.log(date);
         if (date !== '') {
@@ -87,20 +93,23 @@ export const AddAppointment = ({ onSendAppointment, lastId }) => {
 
 
     return (
-        <div className="flex justify-center w-full h-screen bg-black">
+        <div className="flex justify-center w-full h-screen bg-amber-50">
             <div className="p-10 mx-10 my-10 pb-32">
+                <Link to="/reservations">
+                    <button className="text-white bg-black rounded m-4 p-2 ml-5">go</button>
+                </Link>
                 <div
-                    className="bg-amber-500   text-white text-lg px-10 py-3 w-full text-left rounded-t-md">
+                    className="bg-amber-500  text-white text-lg px-10 py-3 w-full text-left rounded-t-md">
                     <div><BiCalendarPlus className="inline-block align-text-top text-md" /> Search for an Appointment</div>
                 </div>
-                <div className="border-r-2 border-b-2 bg-slate-500 border-l-2 rounded-b-md p-4">
+                <div className="border-r-2 border-b-2 bg-white border-l-2 rounded-b-md p-4">
                     <div className="flex gap-3">
                         <motion.input
                             whileTap={{
                                 scale: 0.95,
                             }}
                             onChange={(e) => setDate(e.target.value)}
-                            type="date" className="shadow-md rounded-md p-3 w-full" />
+                            type="date" className="shadow-md outline-none rounded-md p-3 w-full" />
                         <motion.button
                             whileTap={{
                                 scale: 0.9,
@@ -121,20 +130,20 @@ export const AddAppointment = ({ onSendAppointment, lastId }) => {
                                         </span>
                                         {
                                             _.isAvailable ?
-                                            <motion.button
-                                                whileTap={{
-                                                    scale: 0.9,
-                                                }}
-                                                onClick={() => handleReservation(_.slot)}
+                                                <motion.button
+                                                    whileTap={{
+                                                        scale: 0.9,
+                                                    }}
+                                                    onClick={() => handleReservation(_.slot)}
 
-                                                className="bg-green-500 h-full px-3 rounded-md" >Book</motion.button>
+                                                    className="bg-green-500 h-full px-3 rounded-md" >Book</motion.button>
                                                 :
                                                 <motion.button
-                                                whileTap={{
-                                                    scale: 0.9,
-                                                }}
+                                                    whileTap={{
+                                                        scale: 0.9,
+                                                    }}
 
-                                                className="bg-yellow-500 h-full px-3 rounded-md" >Reserved</motion.button>
+                                                    className="bg-yellow-500 h-full px-3 rounded-md" >Reserved</motion.button>
                                         }
                                     </div>
                                 )

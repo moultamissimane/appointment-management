@@ -14,12 +14,33 @@ export const getUser = () => {
 export const getToken = () => {
   const token = localStorage.getItem("token");
   if (token) {
-    return token;
+    return "bearer " + token;
   } else {
     return null;
   }
-}; 
+};
 
+export const fetcher = {
+  get: (endpoint, token) => {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", token);
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch("http://localhost/app_api/" + endpoint, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        return result;
+      })
+      .catch((error) => console.log("error", error));
+  },
+};
 
 // export const getUserId = () => {
 //   const user = JSON.parse(localStorage.getItem("user"));
@@ -29,7 +50,6 @@ export const getToken = () => {
 //   return null;
 // }
 
-
 // export const getUserRole = () => {
 //   const user = JSON.parse(localStorage.getItem("user"));
 //   if (user) {
@@ -37,7 +57,6 @@ export const getToken = () => {
 //   }
 //   return null;
 // }
-
 
 // export const getUserName = () => {
 //   const user = JSON.parse(localStorage.getItem("user"));
@@ -47,7 +66,6 @@ export const getToken = () => {
 //   return null;
 // }
 
-
 // export const getUserEmail = () => {
 //   const user = JSON.parse(localStorage.getItem("user"));
 //   if (user) {
@@ -55,7 +73,6 @@ export const getToken = () => {
 //   }
 //   return null;
 // }
-
 
 // export const getUserPhone = () => {
 //   const user = JSON.parse(localStorage.getItem("user"));
@@ -65,9 +82,6 @@ export const getToken = () => {
 //   return null;
 // }
 
-
-
-
 // export const getUserAddress = () => {
 //   const user = JSON.parse(localStorage.getItem("user"));
 //   if (user) {
@@ -76,7 +90,6 @@ export const getToken = () => {
 //   return null;
 // }
 
-
 // export const getUserCity = () => {
 //   const user = JSON.parse(localStorage.getItem("user"));
 //   if (user) {
@@ -84,7 +97,3 @@ export const getToken = () => {
 //   }
 //   return null;
 // }
-
-
-
-

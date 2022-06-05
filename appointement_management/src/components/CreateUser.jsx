@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import { motion } from 'framer-motion'
-import {Link,  useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import CircularProgress from '@mui/material/CircularProgress'
 import Button from '@mui/material/Button'
 import Snackbar from '@mui/material/Snackbar'
@@ -14,10 +14,8 @@ import booking from '../../public/booking.json'
 import { AppLottie } from './AppLottie'
 
 
-
 export const CreateUser = () => {
-
-
+    
     const [inputs, setInputs] = useState({})
     const navigate = useNavigate()
 
@@ -32,17 +30,7 @@ export const CreateUser = () => {
             [name]: value
         }))
     }
-
-
-
-
-    useEffect(async () => {
-        let user = await getUser()
-        let token = getToken()
-        if (user) {
-            console.log(user, token)
-        }
-    }, [])
+    
 
     const handleClose = () => {
         setSnackBarOpen(false)
@@ -54,7 +42,7 @@ export const CreateUser = () => {
         setIsLoading(true)
         axios.post('http://localhost/app_api/user/register', inputs)
             .then(res => {
-                console.log(res.data.Token)
+                console.log(res.data)
                 setIsLoading(false)
                 localStorage.setItem('token', res.data.Token)
                 localStorage.setItem('user', JSON.stringify(res.data.User))
@@ -90,11 +78,11 @@ export const CreateUser = () => {
 
     return (
         <motion.div classNameName='min-h-screen'>
-            <div className="flex  md:flex-row h-1/5 bg-slate-300 items-center">
+            <div className="flex md:flex-row h-1/5 bg-slate-300 items-center">
                 <div className="bg-slate-300 hidden lg:block w-1/5 md:w-1/2 xl:w-2/3 h-screen">
                     <div>
                         <div className="flex justify-center">
-                        <AppLottie />
+                            <AppLottie />
                         </div>
                     </div>
 
@@ -108,17 +96,17 @@ export const CreateUser = () => {
 
                         <form className="mt-6" method="POST"
                             onSubmit={handleSubmit}>
-                                <div>
+                            <div>
                                 <label className="block text-gray-700">First Name</label>
                                 <input
                                     onChange={handleChange}
-                                    type="text" name="f_name" id="" placeholder="Enter First Name" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-amber-500 focus:bg-white focus:outline-none" />
+                                    type="text" name="first_name" id="" placeholder="Enter First Name" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-amber-500 focus:bg-white focus:outline-none" />
                             </div>
                             <div>
                                 <label className="block text-gray-700">Last Name</label>
                                 <input
                                     onChange={handleChange}
-                                    type="text" name="l_name" id="" placeholder="Enter Last Name" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-amber-500 focus:bg-white focus:outline-none" />
+                                    type="text" name="last_name" id="" placeholder="Enter Last Name" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-amber-500 focus:bg-white focus:outline-none" />
                             </div>
                             <div>
                                 <label className="block text-gray-700">Email Address</label>

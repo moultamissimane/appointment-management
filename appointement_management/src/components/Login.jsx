@@ -68,6 +68,10 @@ export const Login = () => {
             }
             )
     }
+    const logout = () => {
+        localStorage.removeItem('token');
+        setIsLoggedin(false);
+      };
 
     const [isLoading, setIsLoading] = useState(false)
 
